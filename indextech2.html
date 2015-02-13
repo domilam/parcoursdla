@@ -31,8 +31,22 @@
       /* Styles de base */
       img{
         width:100%;
+      }
+
+      .img_comp_tech{
+        width: 100%;
         height: 282px;
       }
+
+      .img_small{
+        width: 50px;
+        height: 50px;
+
+      }
+
+
+      
+
 
       span{
         font-size: 18px;
@@ -60,7 +74,7 @@
       }
 
       .navbar .container .nav >li:hover, .navbar .container .nav >li > a:focus{
-         background-color: #CF0A2C;/*jaune*/
+         background-color: #CF0A2C;/*rouge*/
          color: white;
          font-size:18px;
       }
@@ -104,17 +118,16 @@
       <nav class="navbar navbar-fixed-top navbar-default">
         <div class="container">
           <ul class="nav navbar-nav">
-            <li><a href="#">Accueil</a></li>
-            <li class="dropdown">
-              <a href="#">Compétences techniques</a>
+            <li>
+              <a id="first_menu" href="#">Compétences techniques</a>
             </li>
-            <li class="dropdown">
+            <li>
               <a href="#">Compétences administratives</a>
             </li>
-            <li class="dropdown">
+            <li>
               <a href="#">Formation</a>
             </li>
-            <li class="dropdown">
+            <li>
               <a href="#">Profil et postes</a>
             </li>            
           </ul>
@@ -193,11 +206,18 @@
           <div class="panel panel-info">
             <div class="panel-heading"> 
               <h3 class="panel-title">
-                <a href="#item1" data-parent="#accordeon_gauche" data-toggle="collapse">Maquettes</a> 
+                <a href="#item1" data-parent="#accordeon_gauche" data-toggle="collapse">Maquettes et bannières</a> 
               </h3>
             </div>
             <div id="item1" class="panel-collapse collapse ">
-              <div class="panel-body">Photos de quelques maquettes Photoshop</div>
+              <div class="panel-body">
+                  <div class="col-lg-6">
+                    <img src="images/mini_maq.png" class="img_responsive" style="height:100px" alt="">
+                  </div>
+                  <div class="col-lg-6">
+                    <img src="images/mini_ban.png" alt="" class="img_responsive" style="height:100px">
+                  </div>
+              </div>
             </div>
           </div>
 
@@ -208,7 +228,11 @@
               </h3>
             </div>
             <div id="item2" class="panel-collapse collapse">
-              <div class="panel-body"> Photo du blog de téat'Lari</div>
+              <div class="panel-body">
+                  <div class="col-lg-6">
+                    <a href="http://teatlari.com" target=_blank><img src="images/mini_teat.png" class="img_responsive" style="height:100px" alt=""></a>
+                  </div>
+              </div>
             </div>
           </div>
 
@@ -251,12 +275,23 @@
                   <div class="panel panel-info">
                     <div class="panel-heading"> 
                       <h3 class="panel-title">
-                        <a href="#acwitem1" data-parent="#accordeon_web" data-toggle="collapse">Front-End</a> 
+                        <a id="lienfront" href="#acwitem1" data-parent="#accordeon_web" data-toggle="collapse">Front-End</a> 
                       </h3>
                     </div>
                     <div id="acwitem1" class="panel-collapse collapse ">
-                      <div class="panel-body">
-                        Maîtrise des langages:</br>- HTML 5</br>- CSS 3</br>- JAVASCRIPT</br>- Jquery</br>Framework CSS Bootstrap 3
+                      <div class="row panel-body">
+                        <div class="col-lg-4">
+                          <img class="img_small" src="images/html5.png"   alt=""></br>
+                          <img src="images/css3.png" class="img_small" alt="">
+                        </div>
+                        <div class="col-lg-4">
+                          Maîtrise des langages:</br>- HTML 5</br>- CSS 3</br>- JAVASCRIPT</br>- Jquery</br>Framework CSS Bootstrap 3
+                        </div>
+                        <div class="col-lg-4">
+                          <img src="images/javascript.png" class="img_small" alt="">
+                          <img src="images/bootstrap.png" class="img_small" alt=""></br>
+                          <img src="images/jquery.png" class="img_small" alt="">
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -301,7 +336,7 @@
                 </div>
 
               </div>           
-              <img src="images/dev.png" class="img-rounded" alt="">
+              <img src="images/dev.png" class="img_comp_tech img-rounded" alt="">
           </div>
 
           <div class="image col-sm-12 col-md-6">
@@ -360,7 +395,7 @@
                 </div>
 
             </div>                    
-            <img src="images/projet.png" class="img-rounded" alt="">
+            <img src="images/projet.png" class=" img_comp_tech img-rounded" alt="">
           </div>
 
           <div class="image col-sm-12 col-md-6">
@@ -405,7 +440,7 @@
 
                 </div>
             </div>                    
-            <img src="images/tech.png" class="img-rounded" alt="">
+            <img src="images/tech.png" class="img_comp_tech img-rounded" alt="">
           </div>
 
           <div class="image col-sm-12 col-md-6">
@@ -450,7 +485,7 @@
 
                 </div>
             </div>                    
-            <img src="images/formation.png" class="img-rounded" alt="">
+            <img src="images/formation.png" class="img_comp_tech img-rounded" alt="">
           </div>          
         </div>        
       </div>
@@ -465,10 +500,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <!-- Javascript de Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="js/jquery.rotate.js"></script>
 
     <script type="text/javascript">
       $(function(){
 
+        $('#first_menu').focus();
         function masquer(){
           $(this).parent().hide('slow',function(){$(this).parent().one('click',afficher);
           $('body').css('background:rgba(255, 255, 255, 1);');
@@ -489,6 +526,9 @@
 
         $('.fermeture').one('click',masquer);
 
+        $('#lienfront').on('click',function(){
+          $('.img_small').animate({rotate: '360'}, 1000);
+        });
 
       });
 
