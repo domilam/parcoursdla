@@ -44,7 +44,10 @@
 
       }
 
-
+      .img_zoom{
+        width: 50px;
+        height: 30px;
+      }
       
 
 
@@ -275,7 +278,7 @@
                   <div class="panel panel-info">
                     <div class="panel-heading"> 
                       <h3 class="panel-title">
-                        <a id="lienfront" href="#acwitem1" data-parent="#accordeon_web" data-toggle="collapse">Front-End</a> 
+                        <a id="lienfront1" href="#acwitem1" data-parent="#accordeon_web" data-toggle="collapse">Front-End</a> 
                       </h3>
                     </div>
                     <div id="acwitem1" class="panel-collapse collapse ">
@@ -299,12 +302,20 @@
                   <div class="panel panel-info">
                     <div class="panel-heading"> 
                       <h3 class="panel-title">
-                        <a href="#acwitem2" data-parent="#accordeon_web" data-toggle="collapse">Back-End</a> 
+                        <a id="lienfront2" href="#acwitem2" data-parent="#accordeon_web" data-toggle="collapse">Back-End</a> 
                       </h3>
                     </div>
                     <div id="acwitem2" class="panel-collapse collapse">
-                      <div class="panel-body">
-                        Maîtrise des langages:</br>-Php</br>-MySQL
+                      <div class="row panel-body">
+                        <div class="col-lg-4">
+                          <img src="images/php.png" class="img_zoom" alt="">
+                        </div>
+                        <div class="col-lg-4">
+                          Maîtrise des langages:</br>-Php</br>-MySQL
+                        </div>
+                        <div class="col-lg-4">
+                          <img src="images/mysql.png" class="img_zoom" alt=""> 
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -526,8 +537,19 @@
 
         $('.fermeture').one('click',masquer);
 
-        $('#lienfront').on('click',function(){
-          $('.img_small').animate({rotate: '360'}, 1000);
+        var i=0;
+
+        $('#lienfront1').on('click',function(){
+          i=0;
+          $('.img_small').animate({rotate: '360'}, 500);
+        });
+
+      
+        $('#lienfront2').on('click',function(){
+          i=i+1;
+          if (i==1) {
+            $('.img_zoom').animate({ 'height': '80', 'width': '100' }, 500).animate({ 'height': '50', 'width': '70' }, 500);
+          } else {i=0;}
         });
 
       });
